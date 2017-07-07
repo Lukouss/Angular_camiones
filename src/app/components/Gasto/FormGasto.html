@@ -1,0 +1,24 @@
+<form ng-submit="vm.semanticAction(vm.gastoForm)">
+	<legend ng-if="vm.location === 'store'">Crear gasto</legend>
+	<legend ng-if="vm.location === 'view'">Ver gasto</legend>
+	<legend ng-if="vm.location === 'update'">Actualizar gasto</legend>
+	<div class="form-group">
+		<label>Monto</label>
+		<input ng-model="vm.gastoForm.monto" type="text" class="form-control" placeholder="monto">
+	</div>
+	<div class="form-group">
+		<label>Descripcion</label>
+		<input ng-model="vm.gastoForm.desc" type="text" class="form-control" placeholder="descripcion">
+	</div>
+	<div class="form-group">
+		<label>Fecha</label>
+		<input ng-model="vm.gastoForm.fecha" type="text" class="form-control" placeholder="fecha de llegada">
+	</div>
+	<div class="form-group">
+		<label>tipo de gasto</label>
+		<select ng-model="vm.gastoForm.id_genero" class="form-control" ng-options="genero as genero.descripcion for genero in vm.generos"></select>
+	</div>
+	<a ui-sref="gasto" class="btn btn-default">Volver</a>
+	<button ng-if="vm.location === 'store'" type="submit" class="btn btn-success">Guardar</button>
+	<button ng-if="vm.location === 'update'" type="submit" class="btn btn-danger">Actualizar</button>
+</form>
